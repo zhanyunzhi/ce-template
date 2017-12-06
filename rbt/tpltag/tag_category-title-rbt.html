@@ -1,0 +1,9 @@
+{loop plugins::categoryinfo($_catid) $cat}
+<section class="product">           <!-- 产品介绍模块 -->
+    <h2>{$cat[catname]}</h2>
+    <ul>
+        {tag_首页产品中心内容}
+    </ul>
+    <a href="{$cat[url]}" class="btn btn-large product-more">查看更多</a>
+</section>
+{/loop}

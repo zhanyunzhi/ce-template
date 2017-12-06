@@ -2,3 +2,5 @@ user/
 default_bootstrap/
 wap/
 admin/
+.idea/modules.xml
+.idea/

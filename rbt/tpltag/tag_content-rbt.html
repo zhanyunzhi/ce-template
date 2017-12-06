@@ -1,0 +1,8 @@
+{loop archive($_catid,$_typeid,$_spid,$_area,$_length,$_ordertype,$_limit,$_image,$_attr1,$_son,$_wheretype,$_tpl,$_intro_len,$_istop) $archive}
+<li>
+    <img src="{$archive['thumb']}" alt="{$archive['stitle']}" onerror='this.src="{config::get('onerror_pic')}"'/>
+    <h4>{$archive['stitle']}</h4>
+    <p>{$archive['description']}</p>
+    <a href="{$archive['url']}" class="btn btn-small" target="_blank">查看详情</a>
+</li>
+{/loop}

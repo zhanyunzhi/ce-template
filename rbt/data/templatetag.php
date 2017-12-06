@@ -403,4 +403,71 @@
       'introduce' => '',
     ),
   ),
+  27 => 
+  array (
+    'id' => '27',
+    'name' => '首页产品中心内容',
+    'tagfrom' => 'content',
+    'tagcontent' => 'null',
+    'setting' => 
+    array (
+      'onlymodify' => '',
+      'catid' => '10',
+      'son' => '1',
+      'typeid' => '0',
+      'spid' => '0',
+      'length' => '',
+      'introduce_length' => '',
+      'ordertype' => 'adddate-desc',
+      'istop' => '0',
+      'limit' => '',
+      'attr1' => '0',
+      'tagtemplate' => 'tag_content-rbt.html',
+      'submit' => '提交',
+    ),
+  ),
+  28 => 
+  array (
+    'id' => 28,
+    'name' => '首页产品中心标题',
+    'tagfrom' => 'category',
+    'tagcontent' => 'null',
+    'setting' => 
+    array (
+      'onlymodify' => '',
+      'catid' => '3',
+      'tagtemplate' => 'tag_category-title-rbt.html',
+      'submit' => '提交',
+      'attr1' => '0',
+      'catname' => '',
+      'htmldir' => '',
+      'introduce' => '',
+    ),
+  ),
+  29 => 
+  array (
+    'id' => 29,
+    'name' => '首页产品中心标题和内容',
+    'tagfrom' => 'content',
+    'tagcontent' => 'null',
+    'setting' => 
+    array (
+      'onlymodify' => '',
+      'catid' => '10',
+      'son' => '0',
+      'typeid' => '0',
+      'spid' => '0',
+      'length' => '',
+      'introduce_length' => '',
+      'ordertype' => 'adddate-desc',
+      'istop' => '0',
+      'limit' => '',
+      'attr1' => '0',
+      'tagtemplate' => 'tag_content-title-rbt.html',
+      'submit' => '提交',
+      'catname' => '',
+      'htmldir' => '',
+      'introduce' => '',
+    ),
+  ),
 );
