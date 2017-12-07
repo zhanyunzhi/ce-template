@@ -17,17 +17,27 @@
 <body>
     <nav>           <!--顶部导航-->
         <div>
-            <img class="logo" src="{get('site_logo')}" alt="{get(sitename)}"/>
+            <a href="{$base_url}/"><img class="logo" src="{get('site_logo')}" alt="{get(sitename)}"/></a>
         </div>
         <div class="navigator">
             <ul>
-                <li class="active"><a href="index.html">首页</a></li>
-                <li><a href="product.html">产品中心</a></li>
-                <li><a href="###">解决方案</a></li>
-                <li><a href="about.html">下载中心</a></li>
-                <li><a href="about.html">关于我们</a></li>
-                <li><a href="about.html">新闻中心</a></li>
-                <li><a href="contact.html">联系我们</a></li>
+                <li class="oen{if $topid==0} active{/if}">
+                    <a href="{$base_url}/">{lang(homepage)}</a>
+                </li>
+                {loop categories_nav() $t}
+                <li class="{if count(categories($t[catid]))} has-next{/if}">
+                    <a href="{$t[url]}"{if config::get('nav_blank')==1} target=" _blank"{/if}>
+                        {$t[catname]}{if count(categories($t[catid]))}<span class="caret"></span>{/if}
+                    </a>
+                    {if count(categories($t[catid]))}
+                    <ol class="second-level">
+                        {loop categories_nav($t[catid]) $t1}
+                        <li><a title="{$t1[catname]}" href="{$t1[url]}">{$t1[catname]}</a></li>
+                        {/loop}
+                    </ol>
+                    {/if}
+                </li>
+                {/loop}
             </ul>
         </div>
     </nav>

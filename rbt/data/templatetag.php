@@ -446,7 +446,7 @@
   ),
   29 => 
   array (
-    'id' => 29,
+    'id' => '29',
     'name' => '首页产品中心标题和内容',
     'tagfrom' => 'content',
     'tagcontent' => 'null',
@@ -461,13 +461,10 @@
       'introduce_length' => '',
       'ordertype' => 'adddate-desc',
       'istop' => '0',
-      'limit' => '',
+      'limit' => '3',
       'attr1' => '0',
-      'tagtemplate' => 'tag_content-title-rbt.html',
+      'tagtemplate' => 'tag_content-product-rbt.html',
       'submit' => '提交',
-      'catname' => '',
-      'htmldir' => '',
-      'introduce' => '',
     ),
   ),
 );
