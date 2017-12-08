@@ -11,7 +11,11 @@
     <meta name="author" content="Tiny"/>
     <link rel="icon" href="{$base_url}/favicon.ico" type="image/x-icon"/>
     <link rel="shortcut icon" href="{$base_url}/favicon.ico" type="image/x-icon"/>
-    <link href="{$skin_path}/css/rbt.css" rel="stylesheet">
+    <link href="{$skin_path}/css/bootstrap.min.css" rel="stylesheet">
+    <link href="data:text/css;charset=utf-8," data-href="{$skin_path}/css/bootstrap-theme.min.css" rel="stylesheet" id="bs-theme-stylesheet">
+    <link href="{$skin_path}/css/style.css" rel="stylesheet">
+    <link href="{$skin_path}/css/bootstrap-submenu.css" rel="stylesheet">
+    <link href="{$skin_path}/css/rbt-public.css" rel="stylesheet">
     <script src="{$skin_path}/js/jquery.min.js"></script>
 </head>
 <body>
@@ -21,13 +25,13 @@
         </div>
         <div class="navigator">
             <ul>
-                <li class="oen{if $topid==0} active{/if}">
-                    <a href="{$base_url}/">{lang(homepage)}</a>
+                <li class="{if $topid==0} active{/if}">
+                    <a href="{$base_url}/">{lang(home)}</a>
                 </li>
                 {loop categories_nav() $t}
-                <li class="{if count(categories($t[catid]))} has-next{/if}">
+                <li class="{if count(categories($t[catid]))} has-next{/if}{if $topid==$t[catid]} active{/if}">
                     <a href="{$t[url]}"{if config::get('nav_blank')==1} target=" _blank"{/if}>
-                        {$t[catname]}{if count(categories($t[catid]))}<span class="caret"></span>{/if}
+                    {$t[catname]}{if count(categories($t[catid]))}<span class="caret"></span>{/if}
                     </a>
                     {if count(categories($t[catid]))}
                     <ol class="second-level">

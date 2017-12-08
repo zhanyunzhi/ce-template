@@ -1,21 +1,15 @@
     <footer>        <!-- 底部 --><!--公共底部-->
         <div class="footer-nav">
-            <a href="index.html">首页</a>
-            <a href="product.html">产品中心</a>
-            <a href="product.html">解决方案</a>
-            <a href="product.html">下载中心</a>
-            <a href="about.html">关于我们</a>
-            <a href="about.html">新闻中心</a>
-            <a href="contact.html">联系我们</a>
+            <a href="{$base_url}/">{lang(home)}</a>
+            {loop categories_nav() $t}
+                <a href="{$t[url]}"{if config::get('nav_blank')==1} target=" _blank"{/if}>{$t[catname]}</a>
+            {/loop}
         </div>
         <div class="footer-contact">
-            <h3>深圳市瑞必拓科技有限公司</h3>
-
-            <p>电话：15013664044</p>
-
-            <p>邮箱：297045681@qq.com</p>
-
-            <p>地址：深圳市龙华新区观澜街道石马径社区观天路61号艺强工业村G座2楼</p>
+            <h3>{get(sitename)}</h3>
+            <p>{lang(tel)}：{get(tel)}<span>{lang(mobile)}：{get(mobile)}</span></p>
+            <p>{lang(email)}：{get(email)}<span>{lang(postcode)}：{get(postcode)}</span></p>
+            <p>{lang(address)}：{get(address)}</p>
         </div>
         <div class="copy-right">
             <span>Copyright©深圳市瑞必拓科技有限公司</span>

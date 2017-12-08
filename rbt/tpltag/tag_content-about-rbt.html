@@ -1,0 +1,14 @@
+{loop plugins::categoryinfo($_catid) $cat}
+<section class="about">           <!-- 关于我们模块 -->
+    <div class="about-container">
+        <div class="about-l">
+            <img alt="{$cat[catname]}" src="{$cat[image]}" onerror='this.src="{config::get('onerror_pic')}"'/>
+        </div>
+        <div class="about-r">
+            <h2><a href="{$cat[url]}">{$cat[catname]}</a></h2>
+            <p>{$cat[categorycontent]}</p>
+            <a title="{$cat['catname']}" target="_blank" href="{$cat['url']}" class="btn btn-normal">查看更多</a>
+        </div>
+    </div>
+</section>
+{/loop}

@@ -1,0 +1,18 @@
+{loop plugins::categoryinfo($_catid) $cat}
+<section class="team">          <!-- 我们的团队模块 -->
+    <h2><a href="{$cat[url]}">{$cat[catname]}</a></h2>
+    <ul>
+        {loop archive($_catid,$_typeid,$_spid,$_area,$_length,$_ordertype,$_limit,$_image,$_attr1,$_son,$_wheretype,$_tpl,$_intro_len,$_istop) $archive}
+        <li>
+            <img src="{$archive['thumb']}" alt="{$archive['stitle']}" onerror='this.src="{config::get('onerror_pic')}"'/>
+            <div class="team-intro">
+                <h3>{$archive['stitle']}</h3>
+                <h4>{$archive['subtitle']}</h4>
+                <p>{$archive['introduce']}</p>
+            </div>
+        </li>
+        {/loop}
+    </ul>
+    <a href="###" class="btn btn-large product-more">查看更多</a>
+</section>
+{/loop}

@@ -1,0 +1,36 @@
+{loop plugins::categoryinfo($_catid) $cat}
+<section class="solution">          <!--解决方案-->
+    <h2><a href="{$cat[url]}">{$cat[catname]}</a></h2>
+    <!-- Swiper 解决方案-->
+    <div class="swiper-container solution-swiper-container">
+        <div class="swiper-wrapper">
+            {loop archive($_catid,$_typeid,$_spid,$_area,$_length,$_ordertype,$_limit,$_image,$_attr1,$_son,$_wheretype,$_tpl,$_intro_len,$_istop) $archive}
+            <div class="swiper-slide">
+                <img alt="{$archive['stitle']}" src="{$archive['thumb']}" onerror='this.src="{config::get('onerror_pic')}"'/>
+
+                <h3>{$archive['stitle']}</h3>
+
+                <p>{$archive['introduce']}</p>
+                <a title="{$archive['stitle']}" target="_blank" href="{$archive['url']}" class="btn btn-normal">查看详情</a>
+            </div>
+            {/loop}
+        </div>
+        <!-- Add Pagination 导航的小圆点-->
+        <!--<div class="swiper-pagination"></div>-->
+    </div>
+    <a href="{$cat[url]}" title="{$cat[catname]}" target="_blank"  class="btn btn-large product-more">查看更多</a>
+</section>
+{/loop}
+
+<script src="{$skin_path}/js/swiper-3.4.2.jquery.min"></script>
+<script>
+    var swiper1 = new Swiper('.solution-swiper-container', {
+        slidesPerView: 3,
+        spaceBetween: 30,
+        //pagination: '.swiper-pagination',
+        //paginationClickable: true,
+        autoplay: 2500,
+        speed: 500,
+        loop: true,
+    })
+</script>

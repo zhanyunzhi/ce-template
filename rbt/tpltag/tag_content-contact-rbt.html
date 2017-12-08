@@ -1,0 +1,20 @@
+{loop plugins::categoryinfo($_catid) $cat}
+<section class="contact">           <!-- 联系我们模块 -->
+    <div class="contact-container">
+        <div class="contact-l">
+            <div class="contact-l-c">
+                <h2><a href="{$cat[url]}">{$cat[catname]}</a></h2>
+                <h3>{get(sitename)}</h3>
+                <p>{lang(tel)}：{get(tel)}</p>
+                <p>{lang(mobile)}：{get(mobile)}</p>
+                <p>{lang(email)}：{get(email)}</p>
+                <p>{lang(postcode)}：{get('postcode')}</p>
+                <p>{lang(address)}：{get(address)}</p>
+            </div>
+        </div>
+        <div class="contact-r">
+            <img alt="{$cat[catname]}" src="{$cat[image]}" onerror='this.src="{config::get('onerror_pic')}"'/>
+        </div>
+    </div>
+</section>
+{/loop}

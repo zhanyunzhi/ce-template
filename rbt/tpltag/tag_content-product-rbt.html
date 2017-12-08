@@ -2,13 +2,12 @@
 {loop plugins::categoryinfo($cat[parentid]) $catp}
 <section class="product">           <!-- 产品介绍模块 -->
     <!--<h2>{$cat[catname]}</h2>-->
-    <h2>{$catp[catname]}</h2>           <!--由子目录获取到父目录的名称-->
+    <h2><a href="{$catp[url]}">{$catp[catname]}</a></h2>           <!--由子目录获取到父目录的名称-->
     <ul>
         {loop archive($_catid,$_typeid,$_spid,$_area,$_length,$_ordertype,$_limit,$_image,$_attr1,$_son,$_wheretype,$_tpl,$_intro_len,$_istop) $archive}
                 <li>
                     <img src="{$archive['thumb']}" alt="{$archive['stitle']}" onerror='this.src="{config::get('onerror_pic')}"'/>
                     <h4>{$archive['stitle']}</h4>
-                    <h4>{$archive[length]}</h4>
                     <p>{$archive['introduce']}</p>
                     <a href="{$archive['url']}" class="btn btn-small" target="_blank">查看详情</a>
                 </li>
