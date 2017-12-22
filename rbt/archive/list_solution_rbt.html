@@ -1,0 +1,60 @@
+{template 'header.html'}
+
+<link href="{$skin_path}/css/rbt.css" rel="stylesheet">
+<!-- 面包屑导航开始 -->
+{template 'position.html'}
+<!-- 面包屑导航结束 -->
+<style>
+	.list-container a {
+		color: #fff;
+	}
+</style>
+<!-- 页面标题开始 -->
+<div class="title">
+	<h3 class="wow fadeInDown" data-wow-delay="0.5s"><a href="{$cat[url]}">{$category[$catid][catname]}<small>{$category[$catid][subtitle]}</small></a></h3>
+	<p class="wow fadeIn" data-wow-delay="0.5s">{$category[$catid][description]}</p>
+	<span>——</span>
+</div>
+<!-- 页面标题结束 -->
+
+<!-- 中部开始 -->
+<div class="container list-container">
+	<div class="row">
+		<div class="col-md-12">
+			<!-- 内容列表开始 -->
+			<section class="product">          <!--解决方案-->
+				<!--<h2>{$category[$catid][catname]}</h2>-->
+				<ul>
+					{loop $archives $i $archive}
+					<li>
+						<img alt="{$archive[stitle]}" src="{$archive[thumb]}" data-src="{$archive[thumb]}" onerror='this.src="{config::get('onerror_pic')}"'/>
+						<h4>{$archive[title]}</h4>
+						<p>{cut(strip_tags($archive['introduce']),90)}…</p>
+						<a href="{$archive['url']}" class="btn btn-normal">查看详情</a>
+					</li>
+					{/loop}
+				</ul>
+			<!-- 内容列表结束 -->
+			<div class="blank30"></div>
+			<!-- 内容列表分页开始 -->
+			{if isset($pages)}
+			<div class="blank30"></div>
+			{category_pagination($catid)}
+			<div class="blank30"></div>
+			{/if}
+			<!-- 内容列表分页结束 -->
+		</div>
+	</div><!-- /row -->
+</div><!-- /container -->
+<!-- /中部开始 -->
+
+
+<div class="blank30"></div>
+
+
+<!-- 页底推荐图文产品开始 -->
+{tag_内容页底图文产品三条}
+<!-- 页底推荐图文产品结束 -->
+
+
+{template 'footer.html'}
