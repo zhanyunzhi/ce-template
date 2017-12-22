@@ -1,8 +1,27 @@
 {loop plugins::categoryinfo($_catid) $cat}
-{loop plugins::categoryinfo($cat[parentid]) $catp}
 <section class="product">           <!-- 产品介绍模块 -->
     <!--<h2>{$cat[catname]}</h2>-->
-    <h2><a href="{$catp[url]}">{$catp[catname]}</a></h2>           <!--由子目录获取到父目录的名称-->
+    <h2><a href="{$cat[url]}">{$cat[catname]}</a></h2>           <!--父目录信息-->
+    <ul>
+        {loop categories($cat[catid]) $i $t}        <!--子目录信息-->
+            {if $i<3}           <!--因为现实的不是内容，而是栏目里面的子栏目，所以只能在这里控制现实的数量-->
+                <li>
+                    <img src="{$t['image']}" alt="{$t['stitle']}" onerror='this.src="{config::get('onerror_pic')}"'/>
+                    <h4>{$t['catname']}</h4>
+                    <p>{$t['subtitle']}</p>
+                    <a href="{$t['url']}" class="btn btn-small" target="_blank">查看详情</a>
+                </li>
+            {else}{/if}
+        {/loop}
+    </ul>
+    <a href="{$cat[url]}" class="btn btn-large product-more">查看更多</a>
+</section>
+{/loop}
+<!--{loop plugins::categoryinfo($_catid) $cat}
+{loop plugins::categoryinfo($cat[parentid]) $catp}
+<section class="product">           &lt;!&ndash; 产品介绍模块 &ndash;&gt;
+    &lt;!&ndash;<h2>{$cat[catname]}</h2>&ndash;&gt;
+    <h2><a href="{$catp[url]}">{$catp[catname]}</a></h2>           &lt;!&ndash;由子目录获取到父目录的名称&ndash;&gt;
     <ul>
         {loop archive($_catid,$_typeid,$_spid,$_area,$_length,$_ordertype,$_limit,$_image,$_attr1,$_son,$_wheretype,$_tpl,$_intro_len,$_istop) $archive}
                 <li>
@@ -16,4 +35,4 @@
     <a href="{$cat[url]}" class="btn btn-large product-more">查看更多</a>
 </section>
 {/loop}
-{/loop}
+{/loop}-->
