@@ -1,0 +1,71 @@
+{template 'header.html'}
+
+<link href="{$skin_path}/css/rbt-product.css" rel="stylesheet">
+
+<!-- 面包屑导航开始 -->
+{template 'position.html'}
+<!-- 面包屑导航结束 -->
+<!-- 页面标题开始 -->
+<div class="title">
+<h3 class="wow fadeInDown" data-wow-delay="0.5s"><a href="{$cat[url]}">{$category[$catid][catname]}<small>{$category[$catid][subtitle]}</small></a></h3>
+<p class="wow fadeIn" data-wow-delay="0.5s">{$category[$catid][description]}</p>
+<span>——</span>
+</div>
+<!-- 页面标题结束 -->
+
+<!-- 中部开始 -->
+<div class="clearfix"></div>
+	<div class="container">
+		<div class="row">
+			<!--{loop categories($catid) $i $t}
+				{if $i%3==0}<div class="clearfix"></div>{else}{/if}
+				<div class="post-masonry col-xs-12 col-sm-6 col-md-4">
+				<a href="{category::url($t[catid])}" class="img-auto">
+				<img class="img-responsive" alt="{$t[catname]}" src="{$t[image]}" onerror='this.src="{config::get('onerror_pic')}"' />
+				<h4>{$t['catname']}</h4>
+				</a>
+				</div>
+				{/loop}-->
+
+			<!-- 内容列表开始 -->
+			<section class="product">          <!--解决方案-->
+				<!--<h2>{$category[$catid][catname]}</h2>-->
+				<ul>
+					{loop categories($catid) $i $t}
+					<li>
+						<img alt="{$t[catname]}" src="{$t[image]}" onerror='this.src="{config::get('onerror_pic')}"'/>
+						<h4>{$t['catname']}</h4>
+						<p>{$t['subtitle']}...</p>
+						<a href="{category::url($t[catid])}" class="btn btn-normal">查看详情</a>
+					</li>
+					{/loop}
+				</ul>
+			</section>
+			
+	</div>
+	</div>
+
+
+
+	<div class="clearfix"></div>
+
+	<div class="container">
+		<!-- 内容列表结束 -->
+		<div class="blank30"></div>
+		<!-- 内容列表分页开始 -->
+		{if isset($pages)}
+		<div class="blank30"></div>
+		{category_pagination($catid)}
+		<div class="blank30"></div>
+		{/if}
+	<!-- 内容列表分页结束 -->
+	</div>
+
+</div><!-- /container-fluid -->
+</div>
+<!-- 中部结束 -->
+
+
+<div class="blank60"></div>
+
+{template 'footer.html'}
